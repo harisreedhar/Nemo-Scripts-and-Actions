@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Convert to Lowres GIF
+Comment=Convert the selected file to GIF using FFmpeg
+Exec=gnome-terminal -- bash -c 'for file in %F; do ffmpeg -i "$file" -vf "fps=12,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 "${file%.*}.gif"; done;'
+Icon-Name=video-x-generic
+Selection=S
+Extensions=mp4;MP4;avi;AVI;mkv;MKV;mpg;MPG;mpeg;MPEG;mov;MOV;wmv;WMV;flv;FLV;gif;GIF;webm;WEBM;ts;TS;3gp;3g2;m4v;f4v;ogv;ogg;vob;divx;dv;dat;mts;m2ts;swf;rm;rmvb;
+
+
